@@ -1,0 +1,92 @@
+body {
+	margin-top: 20px;
+}
+p {
+	z-index: 999;
+}
+h1 {
+	font-weight: bold;
+	font-size: 26px;
+}
+.wrapping {
+	width: 700px;
+	margin: 0 auto;
+	text-align: center;
+}
+.gamewrapping {
+	position:relative;
+	width: 700px;
+	height: 500px;
+	padding: 0;
+	background-color: rgb(153,217,234);
+	border-style: solid;
+	border-color: black;
+	border-width: 1px;
+}
+.grassborder {
+	float:left;
+	position: absolute;
+	bottom: -2px;
+	width: 100%;
+	height: auto;
+	background-image: url("../images/grassborder.png");
+	background-repeat: repeat-x;
+}
+.manwithbroom {
+	position: absolute;
+	bottom: 10px;
+	left: 300px;
+	height: auto;
+}
+.mob {
+	position: absolute;
+	bottom: -4px;
+	left: -2px;
+}
+.cloud {
+	width: 300px;
+	position: absolute;
+	left: 0px;
+	top:0px;
+}
+.cloud-2 {
+	position: absolute;
+	right: 0px;
+	top:0px;
+}
+.cloudtext {
+	position: absolute;
+	left: 50px;
+	top:25px;
+	text-align: left;
+}
+.cloud-2text {
+	position: absolute;
+	width: 200px;
+	right: 80px;
+	top: 50px;
+	text-align: left;
+}
+.boldedunderlined {
+	font-weight: bold;
+	text-decoration: underline;
+	line-height: 30px
+}
+#user-text {
+	line-height: 30px;
+}
+#letter-guessed {
+	line-height: 30px;
+	width: 300px;
+}
+.youwin {
+	font-size: 100px;
+	position: absolute;
+	top: 200px;
+	left: 100px;
+}
+.spacebar{
+	position: absolute;
+	top: 300px;
+	left: 250px;
+}
