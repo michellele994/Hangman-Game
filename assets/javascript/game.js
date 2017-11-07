@@ -6,19 +6,22 @@ var userText = document.getElementById("user-text");
 var triesText = document.getElementById("tries-left");
 var word = wordsToGuess[Math.floor(Math.random() * wordsToGuess.length)];
 var a = 0;
+var b = 0;
 var x = 0;
 var y = 0;
 var z = 0;
 var blanks = new Array();
-
-
-
 var numberWins = document.getElementById("number-wins");
 var displayWord = document.getElementById("wordtoguess");
 var guesses = document.getElementById("letter-guessed");
 var didWin = document.getElementById("you-win");
 var spaceBar = document.getElementById("spacebar");
 
+
+
+
+
+//This is a function that will reset the game, keeping the winning tally
 function prepWord() {
 	word = wordsToGuess[Math.floor(Math.random() * wordsToGuess.length)];
 	blanks = new Array();
@@ -32,10 +35,12 @@ function prepWord() {
 	guesses.textContent = lettersGuessed;
 	triesLeft = 12;
 	z=0;
+	b=0;
 	triesText.textContent = triesLeft;
 	displayWord.textContent = blanks;
 }
 
+//This preps the first word
 prepWord();
 
 document.onkeyup = function(event)
@@ -101,7 +106,7 @@ document.onkeyup = function(event)
 			spaceBar.textContent = "Press spacebar to continue playing";
 			document.body.onkeyup = function(e)
 			{
-				if (e.keyCode == 32)
+				if (e.keyCode == 32 && z > 0)
 				{
 					prepWord();
 				}
