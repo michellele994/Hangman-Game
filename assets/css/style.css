@@ -95,6 +95,11 @@ h1 {
 	right: 205px;
 	bottom: 175px;
 }
+#manwithbroom{
+	position: absolute;
+	bottom: 15px;
+	left: 300px;
+}
 #mob {
 	position: absolute;
 	bottom: -4px;
