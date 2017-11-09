@@ -9,7 +9,10 @@
 <body>
 	<div class="wrapping">
 	<h1>HANGMAN</h1>
+	<br>Guess the farm animal
+	<!-- Whole game starts here -->
 		<div class="gamewrapping">
+			<!-- Left Cloud -->
 			<div class="cloud">
 				<img src="assets/images/cloud.png">
 				<div class="cloudtext">
@@ -20,6 +23,7 @@
 					<span id="tries-left">12</span>
 				</div>
 			</div>
+			<!-- Right Cloud -->
 			<div class="cloud-2">
 				<img src="assets/images/cloud-2.png">
 				<div class ="cloud-2text">
@@ -28,20 +32,34 @@
 					<span id="wordtoguess"> </span>
 					<br><br>
 					Wins: <span id="number-wins">0</span>
+					<br>
+					Losses: <span id="number-lose">0</span>
 				</div>
 			</div>
+			<!-- Bottom Images -->
 			<div class="grassborder">
 				<img src="assets/images/grassborder.png">
 			</div>
-			<div class="manwithbroom">
+			<div id="manwithbroom">
 				<img src="assets/images/manwithbroom.png">
 			</div>
-			<div class="mob">
+			<div id="mob">
 				<img src="assets/images/mob.png">
 			</div>
-			<div class="youwin"><span id="you-win"> </span></div>
-			<div class="spacebar"><span id="spacebar"> </span></div>
+			<div id="cow">
+				<img src="assets/images/cow0.png" alt="cow">
+			</div>
+			<div id="heart"></div>
+			<!-- Activates when user wins/loses a game -->
+			<div class="justEnded">
+				<div id="justEnded-image"></div>
+				<div class="winlose"><span id="win-lose"></span></div>
+				<div class="anykey"><span id="any-key"></span></div>
+			</div>
 		</div>
+		<!-- End of game section -->
+		<p>No animals were harmed in this process<span id=except></span></p>
+		<p>Copyright &copy; 2017 Michelle Le
 	</div>
 	<script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
