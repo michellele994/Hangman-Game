@@ -64,8 +64,7 @@ function prep() {
 	word = wordsToGuess[Math.floor(Math.random() * wordsToGuess.length)];
 	//filling the blanks array with "_"
 	blanks = new Array();
-	for (var i = 0; i < word.length; i++)
-	{
+	for (var i = 0; i < word.length; i++) {
 		blanks.push("_");
 	}
 	//displaying the array without the ugly commas.
@@ -84,7 +83,7 @@ function prep() {
 
 	//Resetting all images from the previous game.
 	justEnded.innerHTML = "";
-	cow.innerHTML = "<img src='assets/images/cow"+wrongGuess+".png' alt='cow'>";
+	cow.innerHTML = "<img src='assets/images/cow" + wrongGuess + ".png' alt='cow'>";
 	manBroom.innerHTML = "<img src='assets/images/manwithbroom.png'>";
 	mob.innerHTML = "<img src='assets/images/mob.png'>";
 	except.textContent = "";
@@ -96,32 +95,25 @@ function prep() {
 //This preps the first word
 
 //When player presses a key
-document.onkeyup = function(event)
-{
+document.onkeyup = function (event) {
 	//set the key pressed into a variable and then force it to be lower case.
 	var keyPressed = event.which || event.keyCode;
 	letter = String.fromCharCode(keyPressed).toLowerCase();
 
 	//If the game has not started yet, run prep(), which wil then make gameStarted = true.
-	if (gameStarted === false)
-	{
+	if (gameStarted === false) {
 		prep();
 	}
-
 	//If gameStarted is true and the game has been prepped for a new round
-	else
-	{
+	else {
 		//Ensure that the keys being pressed are letters only.
-		if ((keyPressed >= 65) && (keyPressed <= 90) || (keyPressed >= 97) && (keyPressed <= 122)) 
-		{
+		if ((keyPressed >= 65) && (keyPressed <= 90) || (keyPressed >= 97) && (keyPressed <= 122)) {
 			//Update the player on what key they had just pressed.
-			userText.textContent = "You just pressed '" + letter +"'";
+			userText.textContent = "You just pressed '" + letter + "'";
 
 			//This for loop runs through each letter of the chosen random word and checks to see if player's choice matches a character in the word. If the choice matches, replace the blank with the choice.
-			for (var i = 0; i < word.length; i++)
-			{
-				if (letter === word.charAt(i))
-				{
+			for (var i = 0; i < word.length; i++) {
+				if (letter === word.charAt(i)) {
 					blanks[i] = letter;
 					//currReplaced is used to measure if there were any replacements made. This will be used later to determine if player has guessed correctly or incorrectly.
 					currReplaced++;
@@ -131,19 +123,16 @@ document.onkeyup = function(event)
 			displayWord.textContent = blanks.join(" ");
 
 			//Check to see if there are any more blanks, including replacements from last round
-			for (var i = 0; i < blanks.length; i++)
-			{
-				if (blanks[i] !== "_")
-				{
+			for (var i = 0; i < blanks.length; i++) {
+				if (blanks[i] !== "_") {
 					//this stores the total number of replacements made to blanks
-					numReplaced++;	
+					numReplaced++;
 				}
 			}
 
 			//IF THE USER HAD WON
 			//this compares the numReplace (total number of replacements made to blanks array) and blanks.length to determine if the whole word had been guessed. The user must have not ran out of tries.
-			if (numReplaced === blanks.length && triesLeft > 0)
-			{
+			if (numReplaced === blanks.length && triesLeft > 0) {
 				//play moo and appause sound
 				moo.play();
 				applause.play();
@@ -166,21 +155,17 @@ document.onkeyup = function(event)
 
 			//IF PLAYER IS INCORRECT IN CHOICE
 			//If there were no replacements made, that means the user had guessed incorrectly.
-			if (currReplaced === 0)
-			{
+			if (currReplaced === 0) {
 				//Check to see if the incorrect guess had already been guessed previously by comparing to lettersGuessed array
-				for (var i = 0; i < lettersGuessed.length; i++)
-				{
-					if (letter === lettersGuessed[i])
-					{
+				for (var i = 0; i < lettersGuessed.length; i++) {
+					if (letter === lettersGuessed[i]) {
 						//If the incorrect guess had already been guessed, alreadyGuessed would be greater than 0
 						alreadyGuessed++;
 					}
 				}
 
 				//If the incorrect guess had not already been guessed, then player loses a try
-				if (alreadyGuessed === 0)
-				{
+				if (alreadyGuessed === 0) {
 					//Player loses a try
 					triesLeft--;
 					//wrongGuess is added as this will also be used to update the picture
@@ -192,19 +177,17 @@ document.onkeyup = function(event)
 					//Update HTML to inform player how many tries they have left
 					triesText.textContent = triesLeft;
 					//Here, wrongGuess is used to update the image of the hanging as a result of the incorrect guess.
-					cow.innerHTML = "<img src='assets/images/cow"+wrongGuess+".png' alt='cow'>";
+					cow.innerHTML = "<img src='assets/images/cow" + wrongGuess + ".png' alt='cow'>";
 				}
 
 
 				//IF PLAYER HAD LOST
 				//This checks to see if user has ran out of tries. If they did,
-				if (triesLeft <= 0)
-				{
+				if (triesLeft <= 0) {
 					//play moo sound
 					moo.play();
 					//Display the answer
-					for (var i = 0; i < blanks.length; i++)
-					{
+					for (var i = 0; i < blanks.length; i++) {
 						blanks[i] = word[i];
 					}
 					displayWord.textContent = blanks.join(" ");
@@ -227,8 +210,7 @@ document.onkeyup = function(event)
 			numReplaced = 0;
 		}
 		//If the input was a character other than a letter
-		else
-		{
+		else {
 			userText.textContent = "That was not a letter. Try again.";
 		}
 	}
